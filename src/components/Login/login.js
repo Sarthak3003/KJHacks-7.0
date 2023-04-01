@@ -119,14 +119,14 @@ const Login = ({ setLogin }) => {
             id="submit"
             type="submit"
             onClick={submit}
-            class=" w-full bg-[#4D6D96] hover:bg-[#4D6D96] text-white font-bold py-2 px-4 rounded"
+            class=" w-full bg-[#E24748] hover:bg-[#5D657B] text-white font-bold py-2 px-4 rounded"
           >
             Login
           </button>
         </div>
       </div>
     </div>
-  );
+  )
 };
 
 export default Login;

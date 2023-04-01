@@ -7,9 +7,10 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Chip from "../components/Chip";
+import Button from '@mui/material/Button'
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(name, calories, fat, carbs) {
+  return { name, calories, fat, carbs };
 }
 
 const rows = [
@@ -21,12 +22,35 @@ const rows = [
 ];
 
 export default function BasicTable() {
+  const pay = () => {
+		let options = {
+			key: "rzp_test_631wMxKie5nOL2",
+			amount: "1000",
+			currency: "INR",
+			description: "Acme Corp",
+			prefill: {
+				email: "gaurav.kumar@example.com",
+				contact: +919900000000,
+			},
+			method: {
+				upi: true,
+				netbanking: true,
+				card: true,
+				wallet: true,
+				nb: true,
+			},
+			handler: (response) => {
+				console.log(response);
+			},
+		};
+		var rzp = new window.Razorpay(options);
+		rzp.open();}
   return (
     <TableContainer
       style={{
-        width: "65rem",
-        marginInline: "15rem",
-        marginBlock: "5rem"
+        width: '65rem',
+        marginInline: '15rem',
+        marginBlock: '5rem',
       }}
       component={Paper}
     >
@@ -34,16 +58,28 @@ export default function BasicTable() {
         <TableHead>
           <TableRow>
             <TableCell
-              style={{ backgroundColor: "#E24748", color: "white" }}
+              style={{ backgroundColor: '#E24748', color: 'white' }}
               align="center"
             >
               Entrepreneur
             </TableCell>
             <TableCell
-              style={{ backgroundColor: "#E24748", color: "white" }}
+              style={{ backgroundColor: '#E24748', color: 'white' }}
               align="center"
             >
-              Tags
+              Speciality
+            </TableCell>
+            <TableCell
+              style={{ backgroundColor: '#E24748', color: 'white' }}
+              align="center"
+            >
+              View Proposal
+            </TableCell>
+            <TableCell
+              style={{ backgroundColor: '#E24748', color: 'white' }}
+              align="center"
+            >
+              Invest
             </TableCell>
           </TableRow>
         </TableHead>
@@ -51,16 +87,60 @@ export default function BasicTable() {
           {rows.map((row) => (
             <TableRow
               key={row.name}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" align="center" scope="row">
                 {row.name}
               </TableCell>
-              <Chip word={row.fat} />
+              <TableCell component="th" align="center" scope="row">
+                {row.fat}
+              </TableCell>
+              <TableCell component="th" align="center" scope="row">
+                <Button
+                  sx={{
+                    // backgroundColor: '#E24748',
+                    // border: '1px solid #E24748',
+                    color: '#2F3A56',
+                    ':hover': {
+                      bgcolor: '#2F3A56',
+                      transition: '0.7s',
+                      color: 'white',
+                      border: '0px solid #2F3A56',
+                    },
+                  }}
+                  variant="text"
+                  color="primary"
+                  onCLick={pay}
+                >
+                  View Proposal
+                </Button>
+              </TableCell>
+              <TableCell component="th" align="center" scope="row">
+                <Button
+                  variant="text"
+                  color="primary"
+                  sx={{
+                    // backgroundColor: '#E24748',
+                    // border: '1px solid #E24748',
+                    color: '#2F3A56',
+                    ':hover': {
+                      bgcolor: '#2F3A56',
+                      transition: '0.7s',
+                      color: 'white',
+                      border: '0px solid #2F3A56',
+                    },
+                  }}
+                  variant="text"
+                  color="primary"
+                  onCLick={pay}
+                >
+                  Invest
+                </Button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-  );
+  )
 }

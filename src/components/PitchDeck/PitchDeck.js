@@ -4,8 +4,10 @@ import { Slide, Presentation, render, Image, Shape, Text } from "react-pptx";
 import { fields, format } from "../../app/pitchdeckFields";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Header from '../Header/Header'
 
 const getStyle = (field) => {
+<Header />
   switch (field) {
     case "problems":
       return [
@@ -59,12 +61,12 @@ const getStyle = (field) => {
       ]
     case "marketValidation":
       return [
-        {
+       {
           constant: 5,
           row: true,
           style: {
             x: 2.5,
-            y: 2.5,
+             y: 2.5,
             w: "20%", 
             fontSize: 36,
             align: "center",

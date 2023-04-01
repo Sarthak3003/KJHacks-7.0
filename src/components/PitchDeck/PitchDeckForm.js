@@ -6,6 +6,7 @@ import { removeTile, updatePitch } from "../../app/pitchdeckSlice";
 import { formSections, fields } from "../../app/pitchdeckFields";
 import { Link } from "react-router-dom";
 import { PitchDeck } from "./PitchDeck";
+import Header from "../Header/Header";
 
 const selectField = (field) => {
   switch (field) {
@@ -100,21 +101,22 @@ export default function PitchDeckForm() {
   const formData = useSelector((state) => state.pitchdeck);
   return (
     <div>
+      <Header />
       <div className="container max-w-[50%] mx-auto flex-1 flex flex-col items-center justify-center px-1 ">
         <h1
           style={{
             fontSize: 30,
-            margin: "10%",
-            fontWeight: "bolder",
+            margin: '10%',
+            fontWeight: 'bolder',
           }}
         >
-          Pitch Deck Details{" "}
+          Pitch Deck Details{' '}
         </h1>
         <div
           className="px-6 py-8 rounded shadow-md text-black w-full mb-10"
           component="form"
           sx={{
-            "& .MuiTextField-root": { m: 1, width: "25ch" },
+            '& .MuiTextField-root': { m: 1, width: '25ch' },
           }}
           noValidate
           autoComplete="off"
@@ -127,13 +129,13 @@ export default function PitchDeckForm() {
                   <MultipleFields key={index} field={field} />
                 ) : (
                   <div class="flex items-end gap-2">
-                    <h1 className="text-lg">{fields[field]["title"]} :</h1>
+                    <h1 className="text-lg">{fields[field]['title']} :</h1>
                     <TextField
                       required
-                      value={formData[fields[field]["id"]]}
+                      value={formData[fields[field]['id']]}
                       onChange={(e) =>
                         dispatch(
-                          updatePitch([fields[field]["id"], e.target.value])
+                          updatePitch([fields[field]['id'], e.target.value])
                         )
                       }
                       id="standard-required"
@@ -149,5 +151,5 @@ export default function PitchDeckForm() {
         </div>
       </div>
     </div>
-  );
+  )
 }

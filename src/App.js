@@ -62,7 +62,7 @@ function App() {
   // change the language
   const handleChange = (e) => {
     setLang(e.target.value);
-    let loc = "http://localhost:3000/";
+    let loc = "http://localhost:3001/";
     window.location.replace(loc + "?lng=" + e.target.value);
   };
 

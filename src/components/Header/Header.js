@@ -74,16 +74,16 @@ const Header = ({ event }) => {
     <div className="px-12 py-2 bg-[#D8E8EB] flex justify-between items-center border-b">
       {/* <h1>{t('welcome')}</h1> */}
       <Link className="font-bold " to="/">
-        <img src={logo} style={{ width: "150px" }} />
+        <img src={logo} style={{ width: '150px' }} />
       </Link>
-      {window.location.pathname === "/" && (
+      {window.location.pathname === '/' && (
         <select value={lang} onChange={handleLanguage}>
           {languages.map((item) => {
             return (
               <option key={item.value} value={item.value}>
                 {item.text}
               </option>
-            );
+            )
           })}
         </select>
       )}
@@ -91,65 +91,65 @@ const Header = ({ event }) => {
       {token ? (
         <div className="flex flex-row justify-end items-center flex-1 gap-8">
           <Link to="/feed">
-            <h1 className="font-medium text-xl">{t("home")}</h1>
+            <h1 className="font-medium text-xl">{t('Home')}</h1>
           </Link>
           {is_mentor ? (
             <Link to="/startups">
-              <h1 className="font-medium text-xl">{t("startups")}</h1>
+              <h1 className="font-medium text-xl">{t('startups')}</h1>
             </Link>
           ) : (
             <Mentoring />
           )}
 
           <Link to="/chat">
-            <h1 className="font-medium text-xl">{t("chat")}</h1>
+            <h1 className="font-medium text-xl">{t('Chat')}</h1>
           </Link>
 
           <div>
             <button
               id="fade-button"
-              aria-controls={open1 ? "fade-menu" : undefined}
+              aria-controls={open1 ? 'fade-menu' : undefined}
               aria-haspopup="true"
-              aria-expanded={open1 ? "true" : undefined}
+              aria-expanded={open1 ? 'true' : undefined}
               onClick={handleClick1}
               style={{
-                color: "black",
+                color: 'black',
                 fontWeight: 500,
-                fontSize: "1.28rem",
-                lineHeight: "1.75rem",
+                fontSize: '1.28rem',
+                lineHeight: '1.75rem',
               }}
             >
-              {t("activities")} 
+              {t('Activities')}
             </button>
             <Menu
               id="fade-menu"
               fullwidth
               MenuListProps={{
-                "aria-labelledby": "fade-button",
+                'aria-labelledby': 'fade-button',
               }}
               anchorEl={anchorEl1}
               open={open1}
               onClose={handleClose1}
               TransitionComponent={Fade}
-              sx={{ margin: "10px", padding: "10px" }}
+              sx={{ margin: '10px', padding: '10px' }}
             >
               <Link to="/events">
                 <MenuItem
-                  sx={{ margin: "10px", padding: "10px", width: "140px" }}
+                  sx={{ margin: '10px', padding: '10px', width: '140px' }}
                 >
-                  {t("events")}
+                  {t('Events')}
                 </MenuItem>
               </Link>
               <Link to="/campaigns">
                 <MenuItem
-                  sx={{ margin: "10px", padding: "10px", width: "140px" }}
+                  sx={{ margin: '10px', padding: '10px', width: '140px' }}
                 >
-                  {t("campaigns")}
+                  {t('Campaigns')}
                 </MenuItem>
               </Link>
               <Link to="/marketplace">
-              <MenuItem
-                  sx={{ margin: "10px", padding: "10px", width: "140px" }}
+                <MenuItem
+                  sx={{ margin: '10px', padding: '10px', width: '140px' }}
                 >
                   Marketplace
                 </MenuItem>
@@ -160,68 +160,68 @@ const Header = ({ event }) => {
           <div>
             <button
               id="fade-button"
-              aria-controls={open ? "fade-menu" : undefined}
+              aria-controls={open ? 'fade-menu' : undefined}
               aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
+              aria-expanded={open ? 'true' : undefined}
               onClick={handleClick}
               style={{
-                color: "black",
+                color: 'black',
                 fontWeight: 500,
-                fontSize: "1.28rem",
-                lineHeight: "1.75rem",
+                fontSize: '1.28rem',
+                lineHeight: '1.75rem',
               }}
             >
-              {t("profile")}
+              {t('Profile')}
             </button>
             <Menu
               id="fade-menu"
               MenuListProps={{
-                "aria-labelledby": "fade-button",
+                'aria-labelledby': 'fade-button',
               }}
               anchorEl={anchorEl}
               open={open}
               onClose={handleClose}
               TransitionComponent={Fade}
-              sx={{ margin: "10px", padding: "10px" }}
+              sx={{ margin: '10px', padding: '10px' }}
             >
               <Link to="/myProfile">
                 <MenuItem
-                  sx={{ margin: "10px", padding: "10px", width: "120px" }}
+                  sx={{ margin: '10px', padding: '10px', width: '120px' }}
                 >
-                  {t("myProfile")}
+                  {t('myProfile')}
                 </MenuItem>
               </Link>
               <MenuItem
                 onClick={() => dispatch(logout())}
-                sx={{ margin: "10px", padding: "10px", width: "120px" }}
+                sx={{ margin: '10px', padding: '10px', width: '120px' }}
               >
-                {t("logout")}
+                {t('logout')}
               </MenuItem>
             </Menu>
           </div>
         </div>
       ) : (
-        <div className={`flex gap-4 ${token && "hidden"} items-center`}>
+        <div className={`flex gap-4 ${token && 'hidden'} items-center`}>
           <Link className="font-semibold text-xl" to="/signup">
-            {t("becomeMentor")}
+            {t('becomeMentor')}
           </Link>
           <Link className="font-semibold text-xl" to="/registermentor">
-            {t("findMentor")}
+            {t('findMentor')}
           </Link>
           <Link to="/signup">
             <button className="uppercase rounded-full border w-[8vw] py-2 hover:bg-purple-gray-600 hover:text-white transition-all duration-150">
-              {t("signup")}
+              {t('signup')}
             </button>
           </Link>
           <Link to="/login">
-            <button className="uppercase rounded-full border w-[8vw] py-2 hover:bg-inherit hover:text-inherit bg-purple-gray-600 text-white transition-all duration-150">
-              {t("login")}
+            <button className="uppercase rounded-full border w-[8vw] py-2 hover:bg-inherit hover:text-inherit bg-[#E24748] text-white transition-all duration-150">
+              {t('login')}
             </button>
           </Link>
         </div>
       )}
     </div>
-  );
+  )
 };
 
 export default Header;
