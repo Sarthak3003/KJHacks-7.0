@@ -8,7 +8,7 @@ class ItemPost(models.Model):
     item_title 			= models.CharField(max_length=100, blank=True, default='')
     item_body 			= models.TextField(blank=True, default='')
     item_images    		= models.ImageField(null=True,blank=True)
-    item_owner		    = models.ForeignKey(User, on_delete=models.CASCADE,related_name='item_by')
+    item_owner		    = models.CharField(max_length=100, blank=True, default='')
     # item_rating         = models.IntegerField(default=0, blank=True, null=True)
 
     
