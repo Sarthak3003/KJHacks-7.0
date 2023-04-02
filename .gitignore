@@ -1,0 +1,21 @@
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+# .env 
+.venv 
+env/ 
+venv/ 
+ENV/ 
+env.bak/ 
+venv.bak/
+**/.DS_Store
+.DS_Store
+virtual/
+media/
+# ml_model/
+bs140513_032310.csv
+startup data.csv
+model.h5
+scalar.h5
