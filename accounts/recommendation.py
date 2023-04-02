@@ -6,7 +6,6 @@ import scipy.optimize
 
 def Myrecommend():
 	def normalizeRatings(myY, myR):
-    	# The mean is only counting movies that were rated
 		Ymean = np.sum(myY,axis=1)/np.sum(myR,axis=1)
 		Ymean = Ymean.reshape((Ymean.shape[0],1))
 		return myY-Ymean, Ymean
