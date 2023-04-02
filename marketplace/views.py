@@ -8,8 +8,6 @@ from rest_framework.generics import GenericAPIView
 from .models import *
 from .serializers import *
 
-########################Marketplace part begins####################################
-
 class ItemList(generics.ListCreateAPIView):
     queryset = ItemPost.objects.all()
     serializer_class = ItemPostSerializer
